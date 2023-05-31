@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <string.h>
+
 int demChuoicon(char arr[]) {
     int dem = 0;
     int i = 0;
@@ -23,41 +23,40 @@ void my_strcpy(char* dest, const char* src) {
 
 char* my_strtok(char* str, const char* delim) {
     static char* nextToken = NULL;
-    static char* prevToken = NULL;
 
     if (str != NULL) {
-        prevToken = str;
         nextToken = str;
-    }
-
-    if (prevToken == NULL || *prevToken == '\0') {
+    } else if (nextToken == NULL || *nextToken == '\0') {
         return NULL;
     }
 
     char* token = nextToken;
-    char* tokenEnd = NULL;
+    int foundDelim = 0;
 
     while (*nextToken != '\0') {
         const char* d = delim;
         while (*d != '\0') {
             if (*nextToken == *d) {
-                tokenEnd = nextToken;
-                *tokenEnd = '\0';
+                *nextToken = '\0';
                 nextToken++;
-                return token;
+                foundDelim = 1;
+                break;
             }
             d++;
+        }
+
+        if (foundDelim) {
+            break;
         }
         nextToken++;
     }
 
-    if (tokenEnd == NULL) {
-        return NULL;
+    if (!foundDelim && *nextToken == '\0') {
+        nextToken = NULL;
     }
 
     return token;
 }
-
 
 
 void daoChuoi(char arr[])
@@ -66,12 +65,12 @@ void daoChuoi(char arr[])
     char p[n][10];
     int i=0;
     // Lấy token đầu tiên
-    char * token = strtok(arr, " ");
+    char * token = my_strtok(arr, " ");
   // Lấy ra toàn bộ token
   while( token != NULL ) {
-    strcpy(p[i],token);
+    my_strcpy(p[i],token);
     i++;
-    token = strtok(NULL, " ");
+    token = my_strtok(NULL, " ");
   }
 
   for (int j = n; j > 0 ; j--)
@@ -86,6 +85,6 @@ void daoChuoi(char arr[])
 
 int main()
 {
-    char arr[100] = "I want to become pro dev"; // dev pro become to want I
+    char arr[] = "I want to become pro dev"; // dev pro become to want I
     daoChuoi(arr);
 }
