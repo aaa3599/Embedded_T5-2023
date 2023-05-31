@@ -1,14 +1,24 @@
 #include <stdio.h>
-
-int demChuoicon(char arr[]){
-    int dem=0;
-    int i=0;
-    while (arr[i]== '\0')
-    {
-        if (arr[i] ==' ') dem++;
+#include <string.h>
+int demChuoicon(char arr[]) {
+    int dem = 0;
+    int i = 0;
+    while (arr[i] != '\0') {
+        if (arr[i] == ' ') {
+            dem++;
+        }
         i++;
     }
-    return dem+1;
+    return dem + 1;
+}
+
+void my_strcpy(char* dest, const char* src) {
+    while (*src != '\0') {
+        *dest = *src;
+        dest++;
+        src++;
+    }
+    *dest = '\0';  // Add null terminator to the destination string
 }
 
 char* my_strtok(char* str, const char* delim) {
@@ -56,16 +66,12 @@ void daoChuoi(char arr[])
     char p[n][10];
     int i=0;
     // Lấy token đầu tiên
-  char * token = my_strtok(arr, " ");
+    char * token = strtok(arr, " ");
   // Lấy ra toàn bộ token
   while( token != NULL ) {
-    for (int k = 0; token[k] != '\0'; i++)
-    {
-        p[i][k] = token[k];
-    }
-    
+    strcpy(p[i],token);
     i++;
-    token = my_strtok(NULL, " ");
+    token = strtok(NULL, " ");
   }
 
   for (int j = n; j > 0 ; j--)
@@ -80,6 +86,6 @@ void daoChuoi(char arr[])
 
 int main()
 {
-    char arr[] = "I want to become pro dev";
+    char arr[100] = "I want to become pro dev"; // dev pro become to want I
     daoChuoi(arr);
 }
