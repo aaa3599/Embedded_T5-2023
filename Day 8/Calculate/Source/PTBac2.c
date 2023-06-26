@@ -1,4 +1,4 @@
-#include "main.h"
+#include "../Head/main.h"
 
 void solve_quadratic_equation(const char* equation) {
     float a, b, c;

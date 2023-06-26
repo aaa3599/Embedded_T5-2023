@@ -3,7 +3,7 @@
 // Nhập vào phương trình bậc 2: 2x^2 + 4x -6 =0 => x1, x2?
 // char *input "" Sử dụng vòng lặp duyệt hết từng kí tự trong chuỗi
 
-#include "main.h"
+#include "../Head/main.h"
 
 int checkType(char *input)
 {
@@ -54,9 +54,9 @@ int main()
     case 1:
         giaiPTBac1(input);
         break;
-        default:
-            giaiPTBac2(input);
-            break;
+    default:
+        giaiPTBac2(input);
+        break;
     }
     return 0;
 }
