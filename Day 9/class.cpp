@@ -5,7 +5,7 @@ using namespace std;
 
 // class SinhVien{
 //     public:
-//         SinhVien(int tuoi =5, int lop = 6); //conductor
+//         SinhVien(int tuoi =5, int lop = 6); //contructor
 //         void hienThi(); // method
 //         // void themThongTin(int tuoi, int lop);
 //     private:
