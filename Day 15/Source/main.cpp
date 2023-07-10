@@ -5,9 +5,10 @@
 * Description: This's an example about create an order interface for managers and employees
 */
 
-#include "../Head/dish.hpp"
-#include "../Head/manager.hpp"
-#include "../Head/employee.hpp"
+#include "../Head/main.hpp"
+#include "dish.cpp"
+#include "manager.cpp"
+#include "employee.cpp"
 
 /*
  * Function: Start menu
@@ -45,9 +46,6 @@ uint16_t choice(uint16_t start, uint16_t end)
     } while (n<start||n>end);
     return n;
 }
-
-
-
 
 
 

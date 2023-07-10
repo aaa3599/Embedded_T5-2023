@@ -1,4 +1,3 @@
-#include "main.hpp"
 
 class manager
 {

@@ -104,7 +104,7 @@ void employee::menu()
 	cout << "-------------------------------------------------------------------" << endl;
 
 	uint16_t select = choice(0, 5);
-	switch (employeeMenu(select))
+	switch (select)
 	{
 	case ADDDISH:
 		addDish();
@@ -179,7 +179,7 @@ void employee::addDish()
 	cout << "-------------------------------------------------------------------" << endl;
 
 	uint16_t select = choice(0, 1);
-	switch (employeeMenu(select))
+	switch (select)
 	{
 	case ADDDISH:
 		addDish();
@@ -253,7 +253,7 @@ void employee::editDish()
 	cout << endl;
 	cout << "-------------------------------------------------------------------" << endl;
 	uint16_t select = choice(0, 0);
-	switch (employeeMenu(select))
+	switch (select)
 	{
 	case BACK:
 		menu();
@@ -273,8 +273,7 @@ void employee::removeDish()
 	bool isLoop = true;
 	do
 	{
-		cout << "-> Enter ID"
-			 << ": ";
+		cout << "-> Enter ID: ";
 		processInput(dishId);
 		for (auto temp : ORDERLIST)
 		{
@@ -333,7 +332,7 @@ void employee::showOrderList()
 	cout << endl;
 	cout << "-------------------------------------------------------------------" << endl;
 	uint16_t select = choice(0, 0);
-	switch (employeeMenu(select))
+	switch (select)
 	{
 	case BACK:
 		menu();
@@ -585,8 +584,7 @@ void employee::editID(int id)
 			listDish();
 			cout << endl;
 			cout << "Old dish ID is: " << temp.first << endl;
-			cout << "-> Enter new dish ID"
-				 << ": ";
+			cout << "-> Enter new dish ID: ";
 			processInput(dishId);
 			quantity = temp.second;
 			ORDERLIST.erase(temp.first);
@@ -626,8 +624,7 @@ void employee::editQuantity(int id)
 			orderList();
 			cout << endl;
 			cout << "Old dish quantity is: " << temp.second << endl;
-			cout << "-> Enter new dish quantity"
-				 << ": ";
+			cout << "-> Enter new dish quantity: ";
 			processInput(quantity);
 			ORDERLIST[id] = quantity;
 			cout << "Success!" << endl;

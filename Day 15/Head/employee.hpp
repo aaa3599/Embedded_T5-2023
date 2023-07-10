@@ -1,11 +1,3 @@
-#include "main.hpp"
-
-
-typedef enum
-{
-    MANAGER = 1,
-    EMPLOYEE
-} startMenu;
 
 class employee
 {

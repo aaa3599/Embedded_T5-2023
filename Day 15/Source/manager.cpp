@@ -1,6 +1,6 @@
 /*
  * Function: class manager
- * Description: Design interfaces to add, edit, delete, display the dish list
+ * Description: Design interfaces to add, edit, remove, show the dish list
  */
 #include "../Head/manager.hpp"
 
@@ -18,7 +18,7 @@ manager::manager()
 	cout << "-------------------------------------------------------------------" << endl;
 
 	uint16_t select = choice(0, 5);
-	switch (managerMenu(select))
+	switch (select)
 	{
 	case BACK:
 		start();
@@ -46,11 +46,9 @@ void manager::addDish()
 	int dishPrice;
 	cout << "-----------------------------ADD DISH------------------------------" << endl;
 	cout << endl;
-	cout << "-> Enter dish name"
-		 << ": ";
+	cout << "-> Enter dish name: ";
 	processInput(dishName);
-	cout << "-> Enter dish price"
-		 << ": ";
+	cout << "-> Enter dish price: ";
 	processInput(dishPrice);
 	cout << endl;
 	Dish newDish(dishName, dishPrice);
@@ -227,8 +225,7 @@ void manager::setNumberTable()
 {
 	cout << "-----------------------SET NUMBER OF TABLES------------------------" << endl;
 	cout << endl;
-	cout << "-> Enter number of tables"
-		 << ": ";
+	cout << "-> Enter number of tables: ";
 	processInput(NUMBEROFTABLES);
 	cout << endl;
 	cout << "  0. Back" << endl;
@@ -261,8 +258,7 @@ void manager::setName(Dish &temp)
 	cout << "-----------------------------EDIT DISH-----------------------------" << endl;
 	cout << endl;
 	cout << "Old dish name is: " << temp.getName() << endl;
-	cout << "-> Enter new dish name"
-		 << ": ";
+	cout << "-> Enter new dish name: ";
 	processInput(dishName);
 	temp.setName(dishName);
 	cout << "Success!" << endl;
@@ -292,8 +288,7 @@ void manager::setPrice(Dish &temp)
 	cout << "-----------------------------EDIT DISH-----------------------------" << endl;
 	cout << endl;
 	cout << "Old dish price is: " << temp.getPrice() << endl;
-	cout << "-> Enter new dish price"
-		 << ": ";
+	cout << "-> Enter new dish price: ";
 	processInput(dishPrice);
 	temp.setPrice(dishPrice);
 	cout << "Success!" << endl;
